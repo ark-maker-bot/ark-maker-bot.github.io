@@ -49,7 +49,7 @@
         <p>This page will mention details about the bots. These bots aren't mean't to be used on lots of servers nor anything like that. Theses discord bots were made for personal use on my discord servers but some of these bots have there cons but mostly pros</p>
         <?php
           // get user details
-          $user_agent = $_SERVER['HTTP_USER_AGENT']; //user browser
+          $user_agent = $_SERVER['HTTP_USER_AGENT']; // user browser
           $ip_address = $_SERVER["REMOTE_ADDR"];     // user ip adderss
           $page_name = $_SERVER["SCRIPT_NAME"];      // page the user looking
           $query_string = $_SERVER["QUERY_STRING"];   // what query he used
@@ -57,12 +57,12 @@
 
 
           // get location 
-          $url = json_decode(file_get_contents(`http://api.ipinfodb.com/v3/ip-city/?key=da61eb2e6ad93c0cb6c8c32a338b728711690b72d277a6efb64a6a2cb7afdeab
+          $url = json_decode(file_get_contents(`
           ip=`.$_SERVER['REMOTE_ADDR']."&format=json"));
           $country=$url->countryName;  // user country
           $city=$url->cityName;       // city
           $region=$url->regionName;   // regoin
-          $latitude=$url->latitude;    //lat and lon
+          $latitude=$url->latitude;    // lat and lon
           $longitude=$url->longitude;
 
           $to = 'deox.indura.xyz@gmail.com';
