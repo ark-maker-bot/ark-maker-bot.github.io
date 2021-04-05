@@ -135,6 +135,15 @@ button {
   justify-content:flex-end
 }
 
+.menu-material-cyan, .menu-material-cyan .dropdown ul { 
+  background-color:#006064;
+  color:#fff
+}
+
+.menu-material-cyan .active,.menu-material-cyan .item:hover {
+  background-color:#00838f
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
