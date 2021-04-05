@@ -49,20 +49,74 @@ button {
 }
 
 .header {
-  position: absolute;
-  color: #888;
-  width: 100%;
-  font-size: .9em;
-  text-align: center;
-  background: transparent;
-  height: 225px;
+  position:absolute;
+  display:flex;
+  flex-direction:row;
+  top:.6vh;
+  left:.6vw;
+  vertical-align:middle
 }
 
-.top {
-  width: 80%;
-  font-size: .9em;
-  text-align: center;
-  position: absolute;
+.container {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-content:center;
+  align-items:center
+}
+
+.menu a, .item a {
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer
+}
+
+.item {
+  height:58px
+} 
+
+.item a {
+  padding:18px 24px 18px 24px;
+  display:block
+}
+
+.dropdown>ul .item {
+  min-width:100%;
+  height:29px;
+  padding:5px 10px 5px 40px
+}
+
+.dropdown>ul .item a {
+  min-height:29px;
+  line-height:29px;
+  padding:0
+}
+
+.menu .item { border-top:0 }
+
+.dropdown { height:58px }
+
+.dropdown:hover>ul { 
+  position:absolute;
+  left:0;
+  top:58px;
+  padding:0
+}
+
+.dropdown>ul { display:none }
+
+.dropdown>ul .item { padding:5px 10px }
+
+.dropdown>ul .item a { white-space:nowrap }
+
+.item:hover { background-color:#bdbdbd }
+
+.navigation { 
+  display:flex;
+  flex-direction:column;
+  list-style:none;
+  padding-left:0;
+  margin:0
 }
 
 *, *::before, *::after {
