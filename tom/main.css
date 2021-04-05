@@ -127,6 +127,11 @@ button {
   margin:0
 }
 
+.navigation { 
+  flex-flow:row;
+  justify-content:flex-end
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
