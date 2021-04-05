@@ -59,7 +59,9 @@ button {
 }
 
 .top {
-  width: 980px;
+  width: 80%;
+  font-size: .9em;
+  text-align: center;
   margin: 0 auto 0 auto;
 }
 
