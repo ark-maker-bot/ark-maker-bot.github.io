@@ -42,6 +42,31 @@ button:hover, .button:hover {
   text-align: center;
 }
 
+button {
+  outline: none;
+  cursor: pointer;
+  border: none; 
+}
+
+.header {
+  position: absolute;
+  color: #888;
+  top: 2rem;
+  width: 100%;
+  font-size: .9em;
+  text-align: center;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0; 
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
