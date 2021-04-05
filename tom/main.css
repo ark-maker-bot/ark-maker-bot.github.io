@@ -57,6 +57,14 @@ button {
   vertical-align:middle
 }
 
+.header {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+  height:58px
+}
+
 .container {
   display:flex;
   flex-direction:column;
