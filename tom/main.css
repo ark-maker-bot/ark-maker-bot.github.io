@@ -167,7 +167,7 @@ button {
 
 .mainbuttons button:hover { 
   transform:translate(0%,1px);
-  transition-duration:200ms
+  transition-duration:200ms;
 }
 
 .mainbuttons button:active {
