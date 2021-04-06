@@ -5,9 +5,9 @@ html, body {
 }
 
 body {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-50deg, #e26d4a, #e73c7e, #1433be, #16b345);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 20s ease infinite;
 }
 
 a {
@@ -17,20 +17,6 @@ a {
 
 a:hover {
   text-decoration: underline; 
-}
-
-button, .button {
-  display: inline-block;
-  text-decoration: none;
-  background: linear-gradient(to bottom right, #D84155, #882963);
-  padding: 0.6rem;
-  color: #fff;
-  border-radius: 2px;
-  width: 100%; 
-}
-
-button:hover, .button:hover {
-  background: linear-gradient(to bottom right, #e16b7b, #af3580); 
 }
 
 .footer {
@@ -49,46 +35,43 @@ button {
 }
 
 .header {
-  position:absolute;
-  display:flex;
-  flex-direction:row;
-  top:.6vh;
-  left:.6vw;
-  vertical-align:middle
-}
-
-.header {
+  position: absolute;
   display:flex;
   flex-direction:row;
   justify-content:space-between;
   align-items:center;
-  height:58px
+  height:50px;
+  left:1vw;
+  font-size: 30px;
+  color: #fff;
+}
+.header:hover {
+  color: #00b3b9;
 }
 
 .container {
-  color: rgb(0, 0, 0);
+  color: #fff;
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  align-content:center;
-  align-items:center
+  justify-content:left;
 }
 
-.menu-left .navigation, .menu-left .header { justify-content:flex-start }
+.menu-left .navigation, .menu-left .header { justify-content:flex-start; }
 
 .menu a, .item a {
   text-decoration:none;
   color:inherit;
-  cursor:pointer
+  cursor:pointer;
 }
 
 .item {
-  height:58px
+  height:58px;
+  color: #fff;
 } 
 
 .item a {
   padding:18px 24px 18px 24px;
-  display:block
+  display:block;
 }
 
 .dropdown>ul .item {
@@ -114,23 +97,24 @@ button {
   padding:0
 }
 
-.dropdown>ul { display:none }
+.dropdown>ul { display:none; }
 
-.dropdown>ul .item { padding:5px 10px }
+.dropdown>ul .item { padding:5px 10px; }
 
 .dropdown>ul .item a { white-space:nowrap }
 
-.item:hover { background-color:#bdbdbd00 }
+.item:hover { color: #00b3b9; background-color:#0000000a }
 
 .navigation { 
   display:flex;
   flex-direction:column;
   list-style:none;
   padding-left:0;
-  margin:0
+  margin:0;
 }
 
-.navigation { 
+.navigation {
+  left: 50px;
   flex-flow:row;
   justify-content:flex-end
 }
@@ -143,6 +127,53 @@ button {
 .menu-material-cyan .active,.menu-material-cyan .item:hover {
   background-color:#00838f
 }
+
+.mainbuttons { 
+  display:flex;
+  flex-direction:row;
+  align-content:center;
+  align-items:center;
+  justify-content:center
+}
+
+.mainbuttons button {
+  font-family:reitam;
+  color:#2c2f33;
+  background-color:#fff;
+  font-size:1.5vh;
+  border:none;
+  cursor:pointer;
+  margin:15px;
+  padding:15px 5vw;
+  border-radius:5px;
+  transition-duration:500ms
+}
+
+.mainbuttons button:hover { 
+  transform:translate(0%,1px);
+  transition-duration:200ms
+}
+
+.mainbuttons button:active {
+  transform:translate(0%,2px)
+}
+
+.mainbuttons button:focus { outline:none }
+
+h1 {
+  font-size: 20px;
+}
+
+.content {
+  text-decoration:none;
+  color:inherit;
+  text-align: center;
+  color: #fff;
+}
+
+.mainbuttons button { margin:.5vw }
+
+.mainbuttons button:active, .mainbuttons button:hover { transform:unset }
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -164,4 +195,11 @@ ul, li {
   100% {
     background-position: 0% 50%;
   }
+}
+
+@import 'https://fonts.googleapis.com/css?family=Open+Sans&display=swap';
+@font-face { 
+  font-family:reitam;
+  font-display:swap;
+  src:local('Sans-serif'),local('Reitam'),url(Reitam.otf)
 }
