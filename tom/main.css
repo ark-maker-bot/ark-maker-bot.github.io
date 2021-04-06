@@ -13,7 +13,7 @@ html, body {
 
 body {
   background: linear-gradient(-50deg, #e26d4a, #e73c7e, #1433be, #16b345);
-  background-size: 400% 400%;
+  background-size: 500% 500%;
   animation: gradient 20s ease infinite;
 }
 
@@ -69,6 +69,15 @@ button {
   text-decoration:none;
   color:inherit;
   cursor:pointer;
+}
+
+.command_divider {
+  background:#cecece; 
+  width:90vw;
+  height:2px;
+  margin:40px;
+  border-radius:2px;
+  align-self:center
 }
 
 .item {
