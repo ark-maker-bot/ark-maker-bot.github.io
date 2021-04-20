@@ -2,7 +2,7 @@
 @font-face { 
   font-family:reitam;
   font-display:swap;
-  src:local('Sans-serif'),local('Reitam'),url(Reitam.otf)
+  src:local('Sans-serif'),local('Reitam'),url('Reitam.otf')
 }
 
 html, body {
