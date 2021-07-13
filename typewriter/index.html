@@ -24,11 +24,11 @@
     </div>
     <script>
       setTimeout(() => { $("div.last").slideUp().fadeOut(0) }, 30000);
-      // function goToRecent(){
-      //   if(window.history.length <= 1){ const urls = ['https://www.youtube.com/watch?v=YddwkMJG1Jo', 'https://www.youtube.com/watch?v=R0aVagUyzus', 'https://www.youtube.com/watch?v=NY3kK_--zns']; window.location.replace(urls[Math.floor(Math.random() * urls.length)]); }
-      //   else window.history.go(-1);
-      // }
-      // setTimeout("goToRecent()", 30500);
+      function goToRecent(){
+        if(window.history.length <= 1){ const urls = ['https://www.youtube.com/watch?v=YddwkMJG1Jo', 'https://www.youtube.com/watch?v=R0aVagUyzus', 'https://www.youtube.com/watch?v=NY3kK_--zns']; window.location.replace(urls[Math.floor(Math.random() * urls.length)]); }
+        else window.history.go(-1);
+      }
+      setTimeout("goToRecent()", 30500);
     </script>
   </body>
 </html>
