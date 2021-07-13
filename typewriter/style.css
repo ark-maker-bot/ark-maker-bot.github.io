@@ -1,7 +1,9 @@
 :root {
   --bg-color: hsl(49 37% 94%);
-  --typewriterSpeed: 6s;
-  --typewriterCharacters: 30;
+  --typewriterSpeed: 3s;
+  --typewriterCharacters: 25;
+  --typewriterCharactersSecond: 16;
+  --typewriterCharactersLast: 8;
 }
 
 body {
@@ -14,30 +16,64 @@ body {
   background: var(--bg-color);
 }
 
+#middle {
+  margin: 0;
+}
+
+#third {
+  margin: 0;
+}
+
+h1#head {
+  margin: 0;
+}
+
 .opener {
   margin: 0;
 }
 
-.main {
-  display: none;
-  margin: 0;
-  font-size: 19px;
-  font-family: "Source Sans Pro", sans-serif;
-}
-
 .last {
   display: none;
-  margin: 0;
   font-size: 19px;
-  font-family: "Source Sans Pro", sans-serif;
-}
-
-/* .main {
-  font-size: clamp(1rem, 3vw + 1rem, 4rem);
   position: relative;
   font-family: "Source Code Pro", monospace;
   position: relative;
   width: max-content;
+  height: auto;
+}
+
+.last::before,
+.last::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.last::before {
+  background: var(--bg-color);
+  animation: typewriter var(--typewriterSpeed)
+    steps(var(--typewriterCharactersLast)) 1s forwards;
+}
+
+.last::after {
+  width: 0.125em;
+  background: black;
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharactersLast)) 1s forwards,
+    blink 750ms steps(var(--typewriterCharactersLast)) infinite;
+}
+
+.main {
+  display: none;
+  font-size: 19px;
+  position: relative;
+  font-family: "Source Code Pro", monospace;
+  position: relative;
+  width: max-content;
+  height: auto;
 }
 
 .main::before,
@@ -53,16 +89,16 @@ body {
 .main::before {
   background: var(--bg-color);
   animation: typewriter var(--typewriterSpeed)
-    steps(var(--typewriterCharacters)) 1s forwards;
+    steps(var(--typewriterCharactersSecond)) 1s forwards;
 }
 
 .main::after {
   width: 0.125em;
   background: black;
   animation: typewriter var(--typewriterSpeed)
-      steps(var(--typewriterCharacters)) 1s forwards,
-    blink 750ms steps(var(--typewriterCharacters)) infinite;
-} */
+      steps(var(--typewriterCharactersSecond)) 1s forwards,
+    blink 750ms steps(var(--typewriterCharactersSecond)) infinite;
+}
 
 h1 {
   font-size: clamp(1rem, 3vw + 1rem, 4rem);
