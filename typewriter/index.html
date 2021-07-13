@@ -3,15 +3,13 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
   </head>
   <body>
     <script>
-      function getIP(json) {
-        alert(`IP: ${json.ip}`)
-      }
+      $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
+        alert(data.ipAddress);
+      });
     </script>
-    <p class="subtitle"></p>
     <div class="opener">
       <h1>Hello, you've been joked.</h1>
     </div>
