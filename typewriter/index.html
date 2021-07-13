@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  </head>
+  <body>
+    <div class="opener">
+      <h1>Hello, this website is small.</h1>
+      <p class="subtitle">Welcome to my website!</p>
+    </div>
+    <script>
+      setTimeout(() => { $("div.opener").slideUp().fadeOut(0) }, 10000);
+      setTimeout(() => { $("div.main").show('slow') }, 11000);
+    </script>
+    <div class="main">
+      <p>My brain is too small.</p>
+    </div>
+    <script>
+      setTimeout(() => { $("div.main").slideUp().fadeOut(0) }, 20000);
+      setTimeout(() => { $("div.last").show('slow') }, 21000);
+    </script>
+    <div class="last">
+      <p>This is a goodbye.</p>
+    </div>
+    <script>
+      setTimeout(() => { $("div.last").slideUp().fadeOut(0) }, 30000);
+      function redirectFunc() {
+        window.location.replace("https://www.youtube.com/watch?v=YddwkMJG1Jo");
+      }
+      setTimeout("redirectFunc()", 32000);
+    </script>
+  </body>
+</html>
