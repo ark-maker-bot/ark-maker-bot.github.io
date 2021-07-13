@@ -8,8 +8,7 @@
   <body>
     <script>
       function getIP(json) {
-        let sub = document.getElementsByClassName("subtitle").item();
-        sub.innerHTML = `My public IP address is: ${json.ip}`;
+        alert(`IP: ${json.ip}`)
       }
     </script>
     <p class="subtitle"></p>
