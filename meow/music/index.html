@@ -93,9 +93,9 @@
       </div>
       <div class="controls-container">
         <button class="btn play" onclick="bgmPlay()"></button>
-        <button class="btn"></button>
+        <button class="btn" onclick="bgmVolumeDown()"></button>
         <button onclick="bgmStop()" class="btn"></button>
-        <button class="btn"></button>
+        <button class="btn" onclick="bgmVolumeUp()"></button>
       </div>
     </div>
   </section>
@@ -103,10 +103,12 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js"></script>
   <script>
+    if(localStorage.getItem("bgmVolume") === null)localStorage.setItem("bgmVolume", 0.1);
     let bgm = document.getElementById("player_audio");
     function bgmPlay() {
+      bgm.load();
       bgm.play();
-      bgm.volume = 0.2;
+      bgm.volume = localStorage.getItem("bgmVolume");
       $(".play").addClass("active");
       $(".cog-img").addClass("rotating");
       $(".stop").removeClass("active");
@@ -117,6 +119,14 @@
       $(".play").removeClass("active");
       $(".stop").addClass("active");
       $(".cog-img").removeClass("rotating");
+    }
+    function bgmVolumeUp(){
+      const vol = parseFloat(localStorage.getItem("bgmVolume")) + 0.1;
+      if(bgm.volume < 0.9 && $(".play").hasClass("active")){ bgm.volume = vol; localStorage.setItem("bgmVolume", vol); }
+    }
+    function bgmVolumeDown(){
+      const vol = parseFloat(localStorage.getItem("bgmVolume")) - 0.1;
+      if(bgm.volume > 0.2 && $(".play").hasClass("active")){ bgm.volume = vol; localStorage.setItem("bgmVolume", vol); }
     }
 
     function changeTheme(){
