@@ -21,16 +21,6 @@
       const currentTheme = localStorage.getItem("theme"), curTextTheme = localStorage.getItem("themeText"), curTextTheme2 = localStorage.getItem("themeText2");
       if(currentTheme === "dark" && curTextTheme === 'dark' && curTextTheme2 === 'dark'){ $("#changeThemeBox").trigger('click'); } // document.body.classList.toggle("dark");
     });
-
-    let songTitle = axios.get('https://upbeatradio.net/api/v1/stats').then(res => { 
-      const data = res.data, title = data.song.title;
-      return title;
-    });
-    songTitle.then(title => document.getElementById("playing").innerHTML = `Currently Playing: ${title}`);
-    setInterval(() => {
-      songTitle = axios.get('https://upbeatradio.net/api/v1/stats').then(res => { const data = res.data, title = data.song.title; return title; });
-      songTitle.then(title => document.getElementById("playing").innerHTML = `Currently Playing: ${title}`);
-    }, 5000);
   </script>
 
   <!-- NavBar -->
@@ -42,9 +32,28 @@
         <span></span>
         <span></span>
         <ul id="menu">
-          <a href="../"><li>Home</li></a>
-          <a href="#"><li>Music</li></a>
+          <a href="../index.html"><li>Home</li></a>
+          <a href="index.html"><li>Music</li></a>
           <li>Theme: <label class="switch" for="checkbox" id="changeThemeBox"><input type="checkbox" id="checkbox" onclick="changeTheme(this)" /><div class="slider round"></div></label></li>
+          <!-- <li><div class="dropdown"><label for="menu-checkbox" class="button">Radio</label><input type="checkbox" id="menu-checkbox"/><div class="menu"><a class="link" onclick="loadCaptialFM()">Captial FM</a><a class="link" onclick="loadBBCRadio()">BBC Radio</a><a class="link" onclick="loadUpbeatRadio()">Upbeat Radio</a></div></li> -->
+          <li><div class="dropdown-selection-container">
+            <div class="selection">
+              <div class="selected-option"></div>
+              <div class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                     width="30" height="30"
+                     class="icon"
+                     viewBox="0 0 172 172"
+                     style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="rgba(255,255,255,0.7)"><path d="M53.24609,68.08333l-10.75,10.75l43.50391,43.5039l43.5039,-43.5039l-10.75,-10.75l-32.7539,32.7539z"></path></g></g></svg>
+              </div>
+            </div>
+              <div class="options">
+                <div class="option choose" disable>Choose Radio</div>
+                <div class="option capital">CapitalFM</div>
+                <div class="option bbcradio">BBC Radio</div>
+                <div class="option upbeat">Upbeat</div>
+              </div>
+          </div></li>
         </ul>
       </div>
     </nav>
@@ -99,19 +108,64 @@
       </div>
     </div>
   </section>
-  <audio id='player_audio' src='https://live.upbeat.pw/' type="audio/mp3"></audio>
+  <audio id='player_audio' src='https://media-ssl.musicradio.com/CapitalMP3' type="audio/mp3"></audio>
+
+  <script>
+    const selectOption = document.querySelector('.selection');
+    const optionBox = document.querySelector('.options');
+    const options = document.querySelectorAll('.option');
+    const selectedOption = document.querySelector('.selected-option');
+    const defaultOption = document.querySelector('.choose');
+    selectedOption.innerText = defaultOption.innerText
+    options.forEach((option, index) => {
+      option.addEventListener('click',() => {
+        if(index === 0) return
+        selectedOption.innerText = option.innerText
+        optionBox.classList.toggle('go-active');
+        switch(selectedOption.innerText){
+          case 'CapitalFM':
+            changeSRC('https://media-ssl.musicradio.com/CapitalMP3')
+            break;
+          case 'BBC Radio':
+            changeSRC('https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one')
+            break;
+          case 'Upbeat':
+            changeSRC('https://live.upbeat.pw/')
+            break;
+          default:
+            changeSRC('https://live.upbeat.pw/');
+        }
+        bgmStop();
+        bgmPlay();
+      });
+    });
+    function changeSRC(url){
+      let bgm = document.getElementById("player_audio"); bgm.src = url;
+    }
+    selectOption.addEventListener('click',() => {
+      optionBox.classList.toggle('go-active');
+    });
+    document.body.addEventListener('click',(e) => {
+      if(e.target.nodeName === 'BODY') optionBox.classList.remove('go-active');
+    })
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js"></script>
   <script>
     if(localStorage.getItem("bgmVolume") === null)localStorage.setItem("bgmVolume", 0.1);
-    let bgm = document.getElementById("player_audio");
+    let bgm = document.getElementById("player_audio"), paused = false;
     function bgmPlay() {
-      bgm.load();
-      bgm.play();
-      bgm.volume = localStorage.getItem("bgmVolume");
-      $(".play").addClass("active");
-      $(".cog-img").addClass("rotating");
-      $(".stop").removeClass("active");
+      if($(".play").hasClass("active")){
+        paused = !paused;
+        if(paused){ bgm.pause(); $(".cog-img").removeClass("rotating") }else { bgm.play(); $(".cog-img").addClass("rotating") }
+      }else{
+        if(bgm.currentTime === 0)bgm.load();
+        bgm.play();
+        bgm.volume = localStorage.getItem("bgmVolume");
+        $(".play").addClass("active");
+        $(".cog-img").addClass("rotating");
+        $(".stop").removeClass("active");
+      }
     }
     function bgmStop() {
       bgm.pause();
@@ -141,6 +195,27 @@
       if(document.getElementById("text").classList.contains("dark"))themeText = "dark";
       localStorage.setItem("themeText", themeText);
     }
+
+    function checkIfUpbeat(){
+      setInterval(() => {
+        if(document.getElementById("player_audio").src === 'https://live.upbeat.pw/'){
+          clearInterval();
+          return true;
+        }
+      }, 5000);
+    }
+
+    if(checkIfUpbeat()){
+      let songTitle = axios.get('https://upbeatradio.net/api/v1/stats').then(res => { 
+        const data = res.data, title = data.song.title;
+        return title;
+      });
+      songTitle.then(title => document.getElementById("playing").innerHTML = `Currently Playing: ${title}`);
+      setInterval(() => {
+        songTitle = axios.get('https://upbeatradio.net/api/v1/stats').then(res => { const data = res.data, title = data.song.title; return title; });
+        songTitle.then(title => document.getElementById("playing").innerHTML = `Currently Playing: ${title}`);
+      }, 5000);
+    }else { document.getElementById("playing").innerHTML = ""; }
   </script>
 </body>
 </html>
