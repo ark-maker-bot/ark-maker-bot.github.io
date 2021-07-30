@@ -341,7 +341,7 @@ button {
   border-top: 9px solid transparent;
   border-bottom: 9px solid transparent;
   border-left: 12px solid #fff;
-  transform: rotate(180deg) translate(13px, 9px);
+  transform: rotate(90deg) translate(-12px, 4px);
 }
 
 .btn:nth-child(2):after {
@@ -350,8 +350,26 @@ button {
   border-top: 9px solid transparent;
   border-bottom: 9px solid transparent;
   border-left: 12px solid #fff;
-  transform: rotate(180deg) translate(1px, 9px);
+  transform: rotate(90deg) translate(1px, 4px);
 }
+
+/* .btn:nth-child(2):before {
+  width: 0px;
+  height: 0px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 12px solid #fff;
+  transform: rotate(-90deg) translate(13px, 9px);
+}
+
+.btn:nth-child(2):after {
+  width: 0px;
+  height: 0px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 12px solid #fff;
+  transform: rotate(-90deg) translate(1px, 9px);
+} */
 
 .btn:nth-child(3):before {
   width: 15px;
@@ -360,6 +378,24 @@ button {
 }
 
 .btn:nth-child(4):before {
+  width: 0px;
+  height: 0px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 12px solid #fff;
+  transform: rotate(-90deg) translate(1px, -9px);
+}
+
+.btn:nth-child(4):after {
+  width: 0px;
+  height: 0px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 12px solid #fff;
+  transform: rotate(-90deg) translate(13px, -9px);
+}
+
+/* .btn:nth-child(4):before {
   width: 0px;
   height: 0px;
   border-top: 9px solid transparent;
@@ -375,7 +411,7 @@ button {
   border-bottom: 9px solid transparent;
   border-left: 12px solid #fff;
   transform: rotate(0deg) translate(-13px, -9px);
-}
+} */
 @keyframes rotating {
   from {
     -webkit-transform: rotate(0deg);
