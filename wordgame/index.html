@@ -103,6 +103,7 @@
   <script>
     function generateWord(){
       document.getElementById("result").innerHTML = "";
+      document.getElementById(`highscore`).innerHTML = `Highscore: ${getHighscore()}`;
       const word = words();
       setWordToHTML(word);
     }
