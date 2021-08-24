@@ -1,5 +1,5 @@
 function secretHEHE(){
-  window.location.href = "./donut/index.html";
+  window.location.href = "./donut/";
 }
 function copyTag(){
   navigator.clipboard.writeText('.nero#3887');
