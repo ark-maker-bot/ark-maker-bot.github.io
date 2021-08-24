@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+* {box-sizing: border-box;}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0; 
+  font-family: 'Space Grotesk', sans-serif; 
+  color: hsl(20, 10%, 90%); 
+  background: hsl(0, 0%, 10%);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+  color: white;
+}
+
+main {
+  /* max-block-size: 100vh; */
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  /* block-size: 100vh; */
+  inline-size: 100%;
+  scroll-snap-align: start;
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+
+h1 {
+  margin: 20px 0 0 0;
+  padding: 10px;
+  font-size: 5rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+p {  
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  position: relative;
+}
+
+.sub-title {
+  letter-spacing: 16px;
+  text-transform: uppercase;
+  margin-right: -16px;
+  margin-top: 12px
+}
+
+.bold {
+  cursor: pointer;
+  letter-spacing: 16px;
+  text-transform: uppercase;
+  margin-right: -16px;
+  margin-top: 12px;
+  font-size: 5vmin;
+  font-weight: 300;
+  transition: font-weight 250ms ease-in-out;
+}
+.bold:hover { font-weight: 600; }
+.topButton {
+  display: none;
+  position: fixed; 
+  bottom: 20px; 
+  right: 30px; 
+  z-index: 99;
+  border: none;
+  outline: none; 
+  background-color: transparent; 
+  color: white;
+  cursor: pointer; 
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  transform: rotate(90deg);
+}
+.btn {
+  border: none;
+  outline: none; 
+  background-color: transparent; 
+  padding: 15px;
+  cursor: pointer; 
+}
+
+#wordgame {
+  content: url('images/rsz_wordgame.png');
+}
+#yinyang {
+  content: url('images/rsz_yinyang.png');
+}
+#djtom {
+  content: url('images/rsz_djtom.png');
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials {
+  font-family: 'Fira Mono', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+span {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px;
+}
+
+.img {
+  border: dashed;
+  border-width: 2px;
+  padding: 2px;
+}
+
+#discord {
+  padding: 10px;
+  content: url('images/rsz_discord.png');
+}
+#github {
+  padding: 10px;
+  content: url('images/rsz_github.png');
+}

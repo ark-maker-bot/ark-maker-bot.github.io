@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A website which is used to show nero's projects">
+  <meta name="keywords" content="coding,projects,nero">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="assets/js/scrollBack.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <title>nero's projects</title>
+</head>
+<body>
+  <button onclick="topFunction()" class="topButton" id="backToTop" title="Go to top">&#8249;</button>
+  <main>
+    <section id="home">
+      <div class="container">
+        <div class="wrapper">
+          <div class="bold"><a href="#projects">nero's</a></div>
+          <div class="sub-title">projects</div>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <div class="container">
+        <div class="wrapper">
+          <!-- <div class="bold">projects</div> -->
+          <h1>projects</h1>
+          <div class="items">
+            <span><a href="" class="img" id="wordgame"></a><br>Word Game</span>
+            <span><a href="" class="img" id="yinyang"></a><br>Yin & Yang</span>
+            <span><a href="" class="img" id="djtom"></a><br>DJ Tom</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="aboutme">
+      <div class="container">
+        <div class="wrapper">
+          <h1>about me</h1>
+          <p>I'm James (also called .nero) from the UK, and I enjoy making programs.</p>
+          <p>I'm a fan anime so, sometimes I create stuff anime related.</p>
+          <p>I've been programming for some years now and I've been trying to get into other languages</p>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="container">
+        <div class="wrapper">
+          <h1>contact</h1>
+          <div class="socials">
+            <a onclick="copyTag()" id="discord"></a> .nero#3887
+            <a href="https://github.com/ark-maker-bot" id="github"></a> ark-maker-bot
+          </div>
+          <button onclick="secretHEHE()" class="btn"></button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    let topButton = document.getElementById("backToTop");
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topButton.style.display = "block";
+      } else {
+        topButton.style.display = "none";
+      }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0; 
+    }
+  </script>
+</body>
+</html>
