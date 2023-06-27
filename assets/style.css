@@ -73,6 +73,15 @@ p {
   margin-top: 12px
 }
 
+.sub-title-2 {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-right: -16px;
+  margin-top: 12px;
+  line-height: 2;
+  width: 50%;
+}
+
 .bold {
   cursor: pointer;
   letter-spacing: 16px;
